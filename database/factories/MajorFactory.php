@@ -15,7 +15,7 @@ class MajorFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
+            'name' => $this->faker->unique()->word(),
             'course_id' => Course::query()->inRandomOrder()->value('id'),
         ];
     }

@@ -42,6 +42,11 @@
                                         <span class="badge badge-success float-right">4</span>
                                         <span> Courses </span>
                                     </a>
+                                    <a href="{{ route('majors.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right">4</span>
+                                        <span> Majors </span>
+                                    </a>
 {{--                                    <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
 {{--                                        <li>--}}
 {{--                                            <a href="dashboard-analytics.html">Analytics</a>--}}

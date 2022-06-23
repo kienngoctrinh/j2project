@@ -2,85 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Major\StoreRequest;
+use App\Http\Requests\Major\UpdateRequest;
 use App\Models\Major;
-use App\Http\Requests\StoreMajorRequest;
-use App\Http\Requests\UpdateMajorRequest;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class MajorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private object $model;
+
+    public function __construct()
+    {
+        $this->model = Major::query();
+        $routeName   = Route::currentRouteName();
+        $arr         = explode('.', $routeName);
+        $arr         = array_map('ucfirst', $arr);
+        $title       = implode(' - ', $arr);
+
+        View::share('title', $title);
+    }
+
     public function index()
     {
-        //
+        $data = $this->model->get();
+
+        return view('major.index', [
+            'data' => $data,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('major.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMajorRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMajorRequest $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $this->model->create($request->validated());
+
+        return redirect()->route('majors.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Major  $major
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Major $major)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Major  $major
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Major $major)
     {
-        //
+        return view('major.edit', [
+            'each' => $major,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMajorRequest  $request
-     * @param  \App\Models\Major  $major
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMajorRequest $request, Major $major)
+    public function update(UpdateRequest $request, $majorId)
     {
-        //
+        $object = $this->model->find($majorId);
+        $object->fill($request->validated());
+        $object->save();
+
+        return redirect()->route('majors.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Major  $major
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+
+        return redirect()->route('majors.index');
     }
 }
