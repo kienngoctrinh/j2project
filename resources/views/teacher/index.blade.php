@@ -7,6 +7,8 @@
                     <a href="{{ route('teachers.create') }}" class="btn btn-success">
                         Create
                     </a>
+                </div>
+                <div class="card-body">
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
                         <tr>

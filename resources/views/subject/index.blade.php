@@ -3,10 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-header">
                     <a href="{{ route('subjects.create') }}" class="btn btn-success">
                         Create
                     </a>
+                </div>
+                <div class="card-body">
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
                         <tr>

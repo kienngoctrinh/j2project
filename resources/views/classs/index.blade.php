@@ -7,6 +7,7 @@
                     <a href="{{ route('classses.create') }}" class="btn btn-success">
                         Create
                     </a>
+                    <button id="btnExport" class="btn btn-success">Excel</button>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-centered mb-0" id="table-data">
@@ -46,3 +47,18 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function(){
+            $("#btnExport").click(function() {
+                let table = document.getElementsByTagName("table");
+                TableToExcel.convert(table[0], {
+                    name: `excel.xlsx`,
+                    sheet: {
+                        name: 'Sheet 1'
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

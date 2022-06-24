@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MajorController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -69,4 +70,16 @@ Route::group([
     Route::get('/edit/{classs}', [ClasssController::class, 'edit'])->name('edit');
     Route::put('/update/{classs}', [ClasssController::class, 'update'])->name('update');
     Route::delete('/destroy/{classs}', [ClasssController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'students.',
+    'prefix' => 'students',
+], function () {
+    Route::get('/', [StudentController::class, 'index'])->name('index');
+    Route::get('/create', [StudentController::class, 'create'])->name('create');
+    Route::post('/store', [StudentController::class, 'store'])->name('store');
+    Route::get('/edit/{student}', [StudentController::class, 'edit'])->name('edit');
+    Route::put('/update/{student}', [StudentController::class, 'update'])->name('update');
+    Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])->name('destroy');
 });
