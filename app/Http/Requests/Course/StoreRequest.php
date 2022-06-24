@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Course;
 
+use App\Models\Course;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -18,7 +20,7 @@ class StoreRequest extends FormRequest
                 'required',
                 'filled',
                 'string',
-                'unique:App\Models\Course,name',
+                Rule::unique(Course::class)->ignore($this->course),
             ]
         ];
     }

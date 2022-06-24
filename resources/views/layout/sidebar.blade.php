@@ -3,22 +3,22 @@
 
     <!-- LOGO -->
     <a href="index.html" class="logo text-center logo-light">
-                    <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="" height="16">
-                    </span>
+        <span class="logo-lg">
+            <img src="assets/images/logo.png" alt="" height="16">
+        </span>
         <span class="logo-sm">
-                        <img src="assets/images/logo_sm.png" alt="" height="16">
-                    </span>
+            <img src="assets/images/logo_sm.png" alt="" height="16">
+        </span>
     </a>
 
     <!-- LOGO -->
     <a href="index.html" class="logo text-center logo-dark">
-                    <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="16">
-                    </span>
+        <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="16">
+        </span>
         <span class="logo-sm">
-                        <img src="assets/images/logo_sm_dark.png" alt="" height="16">
-                    </span>
+            <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+        </span>
     </a>
 
     <div class="h-100 mm-active" id="left-side-menu-container" data-simplebar="init">
@@ -39,28 +39,43 @@
                                 <li class="side-nav-item">
                                     <a href="{{ route('courses.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
+                                        <span class="badge badge-success float-right"></span>
                                         <span> Courses </span>
                                     </a>
                                     <a href="{{ route('majors.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right">4</span>
+                                        <span class="badge badge-success float-right"></span>
                                         <span> Majors </span>
                                     </a>
-{{--                                    <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
-{{--                                        <li>--}}
-{{--                                            <a href="dashboard-analytics.html">Analytics</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="dashboard-crm.html">CRM</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="index.html">Ecommerce</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="dashboard-projects.html">Projects</a>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
+                                    <a href="{{ route('subjects.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Subjects </span>
+                                    </a>
+                                    <a href="{{ route('teachers.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Teachers </span>
+                                    </a>
+                                    <a href="{{ route('classses.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Classes </span>
+                                    </a>
+                                    {{-- <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
+                                    {{-- <li>--}}
+                                    {{-- <a href="dashboard-analytics.html">Analytics</a>--}}
+                                    {{-- </li>--}}
+                                    {{-- <li>--}}
+                                    {{-- <a href="dashboard-crm.html">CRM</a>--}}
+                                    {{-- </li>--}}
+                                    {{-- <li>--}}
+                                    {{-- <a href="index.html">Ecommerce</a>--}}
+                                    {{-- </li>--}}
+                                    {{-- <li>--}}
+                                    {{-- <a href="dashboard-projects.html">Projects</a>--}}
+                                    {{-- </li>--}}
+                                    {{-- </ul>--}}
                                 </li>
 
 
@@ -83,8 +98,7 @@
             <div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;"></div>
         </div>
         <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
-            <div class="simplebar-scrollbar simplebar-visible"
-                 style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
+            <div class="simplebar-scrollbar simplebar-visible" style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
         </div>
     </div>
     <!-- Sidebar -left -->

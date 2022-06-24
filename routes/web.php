@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MajorController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,4 +33,40 @@ Route::group([
     Route::get('/edit/{major}', [MajorController::class, 'edit'])->name('edit');
     Route::put('/update/{major}', [MajorController::class, 'update'])->name('update');
     Route::delete('/destroy/{major}', [MajorController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'subjects.',
+    'prefix' => 'subjects',
+], function () {
+    Route::get('/', [SubjectController::class, 'index'])->name('index');
+    Route::get('/create', [SubjectController::class, 'create'])->name('create');
+    Route::post('/store', [SubjectController::class, 'store'])->name('store');
+    Route::get('/edit/{subject}', [SubjectController::class, 'edit'])->name('edit');
+    Route::put('/update/{subject}', [SubjectController::class, 'update'])->name('update');
+    Route::delete('/destroy/{subject}', [SubjectController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'teachers.',
+    'prefix' => 'teachers',
+], function () {
+    Route::get('/', [TeacherController::class, 'index'])->name('index');
+    Route::get('/create', [TeacherController::class, 'create'])->name('create');
+    Route::post('/store', [TeacherController::class, 'store'])->name('store');
+    Route::get('/edit/{teacher}', [TeacherController::class, 'edit'])->name('edit');
+    Route::put('/update/{teacher}', [TeacherController::class, 'update'])->name('update');
+    Route::delete('/destroy/{teacher}', [TeacherController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'classses.',
+    'prefix' => 'classses',
+], function () {
+    Route::get('/', [ClasssController::class, 'index'])->name('index');
+    Route::get('/create', [ClasssController::class, 'create'])->name('create');
+    Route::post('/store', [ClasssController::class, 'store'])->name('store');
+    Route::get('/edit/{classs}', [ClasssController::class, 'edit'])->name('edit');
+    Route::put('/update/{classs}', [ClasssController::class, 'update'])->name('update');
+    Route::delete('/destroy/{classs}', [ClasssController::class, 'destroy'])->name('destroy');
 });

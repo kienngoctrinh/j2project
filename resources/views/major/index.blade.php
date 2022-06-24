@@ -12,7 +12,6 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Course</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

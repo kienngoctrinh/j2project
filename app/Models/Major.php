@@ -10,4 +10,8 @@ class Major extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+    ];
 }

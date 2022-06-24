@@ -2,60 +2,25 @@
 <div class="navbar-custom">
     <ul class="list-unstyled topbar-right-menu float-right mb-0">
         <li class="dropdown notification-list d-lg-none">
-            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
-               aria-haspopup="false" aria-expanded="false">
+            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="dripicons-search noti-icon"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                 <form class="p-3">
-                    <input type="text" class="form-control" placeholder="Search ..."
-                           aria-label="Recipient's username">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                 </form>
             </div>
         </li>
-        <li class="dropdown notification-list topbar-dropdown">
-
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu">
-
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <img src="assets/images/flags/germany.jpg" alt="user-image" class="mr-1" height="12">
-                    <span class="align-middle">German</span>
-                </a>
-
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <img src="assets/images/flags/italy.jpg" alt="user-image" class="mr-1" height="12">
-                    <span class="align-middle">Italian</span>
-                </a>
-
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <img src="assets/images/flags/spain.jpg" alt="user-image" class="mr-1" height="12">
-                    <span class="align-middle">Spanish</span>
-                </a>
-
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <img src="assets/images/flags/russia.jpg" alt="user-image" class="mr-1" height="12">
-                    <span class="align-middle">Russian</span>
-                </a>
-
-            </div>
-        </li>
-
-
         <li class="dropdown notification-list">
-            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
-               role="button" aria-haspopup="false" aria-expanded="false">
-                                    <span class="account-user-avatar">
-                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image"
-                                             class="rounded-circle">
-                                    </span>
+            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <span class="account-user-avatar">
+                    {{-- <img src="assets/images/users/avatar-1.jpg" alt="user-image"--}}
+                    {{-- class="rounded-circle">--}}
+                </span>
                 <span>
-                                        <span class="account-user-name">Dominic Keller</span>
-                                        <span class="account-position">Founder</span>
-                                    </span>
+                    <span class="account-user-name">Dominic Keller</span>
+                    <span class="account-position">Founder</span>
+                </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                 <!-- item-->
@@ -103,8 +68,7 @@
     <div class="app-search dropdown d-none d-lg-block">
         <form>
             <div class="input-group">
-                <input type="text" class="form-control dropdown-toggle" placeholder="Search..."
-                       id="top-search">
+                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
                 <span class="mdi mdi-magnify search-icon"></span>
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Search</button>
@@ -146,8 +110,7 @@
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <div class="media">
-                        <img class="d-flex mr-2 rounded-circle" src="assets/images/users/avatar-2.jpg"
-                             alt="Generic placeholder image" height="32">
+                        <img class="d-flex mr-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                         <div class="media-body">
                             <h5 class="m-0 font-14">Erwin Brown</h5>
                             <span class="font-12 mb-0">UI Designer</span>
@@ -158,8 +121,7 @@
                 <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <div class="media">
-                        <img class="d-flex mr-2 rounded-circle" src="assets/images/users/avatar-5.jpg"
-                             alt="Generic placeholder image" height="32">
+                        <img class="d-flex mr-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                         <div class="media-body">
                             <h5 class="m-0 font-14">Jacob Deo</h5>
                             <span class="font-12 mb-0">Developer</span>
