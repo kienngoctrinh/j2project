@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Classs;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Major;
+use App\Models\Slot;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -20,5 +22,7 @@ class DatabaseSeeder extends Seeder
         Teacher::factory(10)->create();
         Classs::factory(10)->create();
         Student::factory(10)->create();
+        Lesson::factory(10)->create();
+        Slot::factory(10)->create();
     }
 }

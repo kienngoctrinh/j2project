@@ -67,6 +67,11 @@
                                         <span class="badge badge-success float-right"></span>
                                         <span> Students </span>
                                     </a>
+                                    <a href="{{ route('lessons.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Lessons </span>
+                                    </a>
                                     {{-- <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
                                     {{-- <li>--}}
                                     {{-- <a href="dashboard-analytics.html">Analytics</a>--}}

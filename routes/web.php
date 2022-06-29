@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -82,4 +83,16 @@ Route::group([
     Route::get('/edit/{student}', [StudentController::class, 'edit'])->name('edit');
     Route::put('/update/{student}', [StudentController::class, 'update'])->name('update');
     Route::delete('/destroy/{student}', [StudentController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'lessons.',
+    'prefix' => 'lessons',
+], function () {
+    Route::get('/', [LessonController::class, 'index'])->name('index');
+    Route::get('/create', [LessonController::class, 'create'])->name('create');
+    Route::post('/store', [LessonController::class, 'store'])->name('store');
+    Route::get('/edit/{lesson}', [LessonController::class, 'edit'])->name('edit');
+    Route::put('/update/{lesson}', [LessonController::class, 'update'])->name('update');
+    Route::delete('/destroy/{lesson}', [LessonController::class, 'destroy'])->name('destroy');
 });
