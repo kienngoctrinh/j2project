@@ -4,6 +4,7 @@ use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MajorController;
+use App\Http\Controllers\SlotController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
@@ -95,4 +96,16 @@ Route::group([
     Route::get('/edit/{lesson}', [LessonController::class, 'edit'])->name('edit');
     Route::put('/update/{lesson}', [LessonController::class, 'update'])->name('update');
     Route::delete('/destroy/{lesson}', [LessonController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'slots.',
+    'prefix' => 'slots',
+], function () {
+    Route::get('/', [SlotController::class, 'index'])->name('index');
+    Route::get('/create', [SlotController::class, 'create'])->name('create');
+    Route::post('/store', [SlotController::class, 'store'])->name('store');
+    Route::get('/edit/{slot}', [SlotController::class, 'edit'])->name('edit');
+    Route::put('/update/{slot}', [SlotController::class, 'update'])->name('update');
+    Route::delete('/destroy/{slot}', [SlotController::class, 'destroy'])->name('destroy');
 });

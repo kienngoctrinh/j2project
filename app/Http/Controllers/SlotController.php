@@ -2,85 +2,98 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\SlotSlotEnum;
+use App\Http\Requests\Slot\StoreRequest;
+use App\Http\Requests\Slot\UpdateRequest;
+use App\Models\Classs;
 use App\Models\Slot;
-use App\Http\Requests\StoreSlotRequest;
-use App\Http\Requests\UpdateSlotRequest;
+use App\Models\Subject;
+use App\Models\Teacher;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class SlotController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private object $model;
+
+    public function __construct()
+    {
+        $this->model = Slot::query();
+        $routeName   = Route::currentRouteName();
+        $arr         = explode('.', $routeName);
+        $arr         = array_map('ucfirst', $arr);
+        $title       = implode(' - ', $arr);
+
+        View::share('title', $title);
+    }
+
     public function index()
     {
-        //
+        $data = $this->model->get();
+        foreach($data as $each) {
+            $each->slot = $each->slot_name;
+        }
+
+        return view('slot.index', [
+            'data' => $data,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $slots = SlotSlotEnum::asArray();
+
+        $teachers = Teacher::get();
+        $subjects = Subject::get();
+        $classses = Classs::get();
+
+        return view('slot.create', [
+            'slots' => $slots,
+
+            'teachers' => $teachers,
+            'subjects' => $subjects,
+            'classses' => $classses,
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreSlotRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreSlotRequest $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $this->model->create($request->validated());
+
+        return redirect()->route('slots.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Slot  $slot
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Slot $slot)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Slot  $slot
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Slot $slot)
     {
-        //
+        $slots = SlotSlotEnum::asArray();
+
+        $teachers = Teacher::get();
+        $subjects = Subject::get();
+        $classses = Classs::get();
+
+        return view('slot.edit', [
+            'slots' => $slots,
+
+            'each' => $slot,
+            'teachers' => $teachers,
+            'subjects' => $subjects,
+            'classses' => $classses,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateSlotRequest  $request
-     * @param  \App\Models\Slot  $slot
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateSlotRequest $request, Slot $slot)
+    public function update(UpdateRequest $request, $slotId)
     {
-        //
+        $object = $this->model->find($slotId);
+        $object->fill($request->validated());
+        $object->save();
+
+        return redirect()->route('slots.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Slot  $slot
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Slot $slot)
     {
-        //
+        $slot->delete();
+
+        return redirect()->route('slots.index');
     }
 }
