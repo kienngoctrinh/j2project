@@ -1,6 +1,6 @@
 # Điểm danh sinh viên
 ## J2Project
-[![Sơ đồ thực thể](https://app.diagrams.net/images/favicon-32x32.png)](https://drive.google.com/file/d/1eMhUpDqjf4aaNyZMS7JMio6Xo-A0LJDn/view?usp=sharing)
+[![Sơ đồ thực thể](https://app.diagrams.net/images/favicon-32x32.png)](https://drive.google.com/file/d/1JID95FbugntT9YhnGvDlEJ6dbtpLe62-/view?usp=sharing)
 [![Cơ sở dữ liệu](https://i.ibb.co/S7KTZxP/google-sheets-1.png)](https://docs.google.com/spreadsheets/d/1oAQ5MwUDSV8erZNFvdSFqot8FxNYvueNFC7K40-dwQo/edit?usp=sharing)
 
 ### Đối tượng sử dụng
