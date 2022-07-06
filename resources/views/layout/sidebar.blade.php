@@ -77,6 +77,11 @@
                                         <span class="badge badge-success float-right"></span>
                                         <span> Slots </span>
                                     </a>
+                                    <a href="{{ route('attendances.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Attendances </span>
+                                    </a>
                                     {{-- <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
                                     {{-- <li>--}}
                                     {{-- <a href="dashboard-analytics.html">Analytics</a>--}}

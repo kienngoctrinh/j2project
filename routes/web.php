@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
@@ -108,4 +109,12 @@ Route::group([
     Route::get('/edit/{slot}', [SlotController::class, 'edit'])->name('edit');
     Route::put('/update/{slot}', [SlotController::class, 'update'])->name('update');
     Route::delete('/destroy/{slot}', [SlotController::class, 'destroy'])->name('destroy');
+});
+
+Route::group([
+    'as'     => 'attendances.',
+    'prefix' => 'attendances',
+], function () {
+    Route::get('/', [AttendanceController::class, 'index'])->name('index');
+    Route::post('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
 });

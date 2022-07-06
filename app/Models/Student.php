@@ -35,4 +35,6 @@ class Student extends Model
     {
         return $this->belongsTo(Classs::class);
     }
+
+    public $table = 'students';
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attendance;
 use App\Models\Classs;
 use App\Models\Course;
 use App\Models\Lesson;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
         Student::factory(10)->create();
         Lesson::factory(10)->create();
         Slot::factory(10)->create();
+        Attendance::factory(10)->create();
     }
 }
