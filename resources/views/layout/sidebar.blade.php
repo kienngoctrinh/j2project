@@ -34,76 +34,103 @@
                             <!--- Sidemenu -->
                             <ul class="metismenu side-nav mm-show">
 
-                                <li class="side-nav-title side-nav-item">Navigation</li>
+                                <li class="side-nav-title side-nav-item">Manage</li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{ route('courses.index') }}" class="side-nav-link">
+                                    <a href="{{ route('courses.index') }}" class="side-nav-link" aria-expanded="false">
                                         <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right"></span>
-                                        <span> Courses </span>
+                                        <span> Course </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('majors.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Majors </span>
+                                        <span> Major </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('subjects.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Subjects </span>
+                                        <span> Subject </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('teachers.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Teachers </span>
+                                        <span> Teacher </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('classses.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Classes </span>
+                                        <span> Class </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('students.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Students </span>
+                                        <span> Student </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('lessons.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Lessons </span>
+                                        <span> Lesson </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('slots.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Slots </span>
+                                        <span> Slot </span>
                                     </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('attendances.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Attendances </span>
+                                        <span> Attendance </span>
                                     </a>
-                                    {{-- <ul class="side-nav-second-level mm-collapse" aria-expanded="false">--}}
-                                    {{-- <li>--}}
-                                    {{-- <a href="dashboard-analytics.html">Analytics</a>--}}
-                                    {{-- </li>--}}
-                                    {{-- <li>--}}
-                                    {{-- <a href="dashboard-crm.html">CRM</a>--}}
-                                    {{-- </li>--}}
-                                    {{-- <li>--}}
-                                    {{-- <a href="index.html">Ecommerce</a>--}}
-                                    {{-- </li>--}}
-                                    {{-- <li>--}}
-                                    {{-- <a href="dashboard-projects.html">Projects</a>--}}
-                                    {{-- </li>--}}
-                                    {{-- </ul>--}}
                                 </li>
+                                @if(session()->get('role') === 1)
+                                <li class="side-nav-title side-nav-item">Register</li>
 
+                                <li class="side-nav-item">
+                                    <a href="{{ route('register_ministry') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Ministry </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register_teacher') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Teacher </span>
+                                    </a>
+                                </li>
+                                @endif
+
+                                @if(session()->get('role') === 2)
+                                <li class="side-nav-title side-nav-item">Register</li>
+
+                                <li class="side-nav-item">
+                                    <a href="{{ route('register_teacher') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Teacher </span>
+                                    </a>
+                                </li>
+                                @endif
 
                             </ul>
 
-                            <!-- Help Box -->
-
-                            <!-- end Help Box -->
                             <!-- End Sidebar -->
 
                             <div class="clearfix"></div>

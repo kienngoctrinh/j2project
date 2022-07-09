@@ -26,5 +26,8 @@ class DatabaseSeeder extends Seeder
         Lesson::factory(10)->create();
         Slot::factory(10)->create();
         Attendance::factory(10)->create();
+        $this->call([
+            UserSeeder::class,
+        ]);
     }
 }

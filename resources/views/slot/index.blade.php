@@ -3,11 +3,13 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('slots.create') }}" class="btn btn-success">
-                        Create
-                    </a>
-                </div>
+                @if(checkAdmin())
+                    <div class="card-header">
+                        <a href="{{ route('slots.create') }}" class="btn btn-success">
+                            Create
+                        </a>
+                    </div>
+                @endif
                 <div class="card-body">
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
@@ -18,8 +20,10 @@
                             <th>Subject</th>
                             <th>Class</th>
                             <th>Date</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            @if(checkAdmin())
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -31,16 +35,18 @@
                                 <td>{{ $each->subject->name }}</td>
                                 <td>{{ $each->classs->name }}</td>
                                 <td>{{ $each->date }}</td>
-                                <td>
-                                    <a href="{{ route('slots.edit', $each) }}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('slots.destroy', $each) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
+                                @if(checkAdmin())
+                                    <td>
+                                        <a href="{{ route('slots.edit', $each) }}" class="btn btn-primary">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('slots.destroy', $each) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

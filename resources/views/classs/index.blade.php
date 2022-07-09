@@ -3,12 +3,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('classses.create') }}" class="btn btn-success">
-                        Create
-                    </a>
-                    <button id="btnExport" class="btn btn-success">Excel</button>
-                </div>
+                @if(checkAdmin())
+                    <div class="card-header">
+                        <a href="{{ route('classses.create') }}" class="btn btn-success">
+                            Create
+                        </a>
+                        <button id="btnExport" class="btn btn-success">Excel</button>
+                    </div>
+                @endif
                 <div class="card-body">
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
@@ -17,8 +19,10 @@
                             <th>Name</th>
                             <th>Major</th>
                             <th>Course</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            @if(checkAdmin())
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -28,16 +32,18 @@
                                 <td>{{ $each->name }}</td>
                                 <td>{{ $each->major->name }}</td>
                                 <td>{{ $each->course->name }}</td>
-                                <td>
-                                    <a href="{{ route('classses.edit', $each) }}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('classses.destroy', $each) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
+                                @if(checkAdmin())
+                                    <td>
+                                        <a href="{{ route('classses.edit', $each) }}" class="btn btn-primary">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('classses.destroy', $each) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
