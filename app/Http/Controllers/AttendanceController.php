@@ -25,11 +25,11 @@ class AttendanceController extends Controller
         $arr         = array_map('ucfirst', $arr);
         $title       = implode(' - ', $arr);
 
-        $statuses = AttendanceStatusEnum::getArrayView();
+        $attendanceStatuses = AttendanceStatusEnum::getArrayView();
         $slots = SlotSlotEnum::getArrayView();
 
         View::share('title', $title);
-        View::share('statuses', $statuses);
+        View::share('attendanceStatuses', $attendanceStatuses);
         View::share('slots', $slots);
     }
 
@@ -66,17 +66,27 @@ class AttendanceController extends Controller
             ->where('course_id', $courseId)
             ->get();
 
-        // $majors = Major::query()
-        //     ->where('academic_year_id', $academicYearId)
-        //     ->get();
-        //
-        // $courses = Course::query()
-        //     ->where('major_id', $majorId)
-        //     ->get();
-        //
-        // $subjects = Subject::query()
-        //     ->where('major_id', $majorId)
-        //     ->get();
+        $attendanceId = Attendance::query()
+            ->where('date', date('Y-m-d'))
+            ->where('course_id', $courseId)
+            ->where('subject_id', $subjectId)
+            ->value('id');
+
+        $statuses = [];
+
+        if (!empty($attendanceId)){
+            $attendances = AttendanceStudent::query()
+                ->select([
+                    'student_id',
+                    'status',
+                ])
+                ->where('attendance_id', $attendanceId)
+                ->get();
+
+            foreach ($attendances as $attendance){
+                $statuses[$attendance->student_id] = $attendance->status;
+            }
+        }
 
         return view('attendance.index', [
             'academicYears' => $academicYears,
@@ -90,6 +100,7 @@ class AttendanceController extends Controller
             'courseId' => $courseId,
             'subjectId' => $subjectId,
             'teacherId' => $teacherId,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -101,25 +112,37 @@ class AttendanceController extends Controller
         $statuses = $request->get('statuses');
         $slot = $request->get('slot');
 
-        $attendance = Attendance::create([
-            'slot' => $slot,
-            'teacher_id' => $teacherId,
-            'subject_id' => $subjectId,
-            'course_id' => $courseId,
-            'date' => date('Y-m-d'),
-        ]);
+        $attendance = Attendance::query()
+            ->where([
+                'slot' => $slot,
+                'subject_id' => $subjectId,
+                'course_id' => $courseId,
+                'date' => date('Y-m-d'),
+            ])->first();
 
-        foreach ($statuses as $studentId => $status){
-            AttendanceStudent::create([
-               'attendance_id' => $attendance->id,
-               'student_id' => $studentId,
-               'status' => $status,
-            ]);
+        if (is_null($attendance)){
+            $attendance = Attendance::query()
+                ->create([
+                    'slot' => $slot,
+                    'teacher_id' => $teacherId,
+                    'subject_id' => $subjectId,
+                    'course_id' => $courseId,
+                    'date' => date('Y-m-d'),
+                ]);
         }
 
-        // return redirect()->route('attendances.index', [
-        //     'courseId' => $courseId,
-        //     'subjectId' => $subjectId,
-        // ]);
+        foreach ($statuses as $studentId => $status){
+            try {
+                AttendanceStudent::query()
+                    ->updateOrCreate([
+                        'attendance_id' => $attendance->id,
+                        'student_id' => $studentId,
+                    ], [
+                        'status' => $status,
+                    ]);
+            } catch (\Throwable $e) {
+
+            }
+        }
     }
 }

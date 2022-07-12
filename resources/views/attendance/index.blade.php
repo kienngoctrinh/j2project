@@ -4,6 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
+{{--                    {{ Breadcrumbs::render('about') }}--}}
                     <form class="form-horizontal" method="post">
                         @csrf
                          <div class="form-group">
@@ -75,9 +76,9 @@
                     @isset($students)
                         <h1 class="page-title">Điểm danh sinh viên</h1>
                         <form method="post" id="form-attendance">
-                            @csrf
                             <input type="hidden" name="course_id" value={{ $courseId }}>
                             <input type="hidden" name="subject_id" value="{{ $subjectId }}">
+                            @csrf
                             <table class="table table-hover table-centered mb-0">
                                 <thead>
                                 <tr>
@@ -92,13 +93,17 @@
                                         <td>{{ $student->id }}</td>
                                         <td>{{ $student->name }}</td>
                                         <td>
-                                            @foreach ($statuses as $status => $value)
+                                            @foreach ($attendanceStatuses as $attendanceStatus => $value)
                                                 <div class="custom-control-inline">
                                                     <label>
-                                                        <input type="radio" name="statuses[{{ $student->id }}]"
+                                                        <input type="radio"
+                                                               name="statuses[{{ $student->id }}]"
                                                                value="{{ $value }}"
-                                                               @if ($loop->first) checked @endif>
-                                                        {{ $status }}
+                                                               @if(isset($statuses[$student->id]) && $statuses[$student->id] == $value)
+                                                                   checked
+                                                               @endif
+                                                        >
+                                                        {{ $attendanceStatus }}
                                                     </label>
                                                 </div>
                                             @endforeach
