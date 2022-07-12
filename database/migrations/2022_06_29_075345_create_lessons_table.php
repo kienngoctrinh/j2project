@@ -12,8 +12,6 @@ class CreateLessonsTable extends Migration
             $table->id();
             $table->string('number_lesson');
             $table->foreignId('subject_id')->constrained();
-            $table->foreignId('classs_id')->constrained();
-            $table->foreignId('teacher_id')->constrained();
         });
     }
 

@@ -3,36 +3,22 @@
     <form action="{{ route('lessons.update', $each) }}" method="post">
         @csrf
         @method('PUT')
-        Number Lesson
-        <input type="text" name="number_lesson" value="{{ $each->number_lesson }}">
-        <br>
-        Subject
-        <select name="subject_id">
-            @foreach($subjects as $subject)
-                <option value="{{ $subject->id }}" {{ ($subject->id == $each->subject_id) ? 'selected' : '' }}>
-                    {{ $subject->name }}
-                </option>
-            @endforeach
-        </select>
-        <br>
-        Class
-        <select name="classs_id">
-            @foreach($classses as $classs)
-                <option value="{{ $classs->id }}" {{ ($classs->id == $each->classs_id) ? 'selected' : '' }}>
-                    {{ $classs->name }}
-                </option>
-            @endforeach
-        </select>
-        <br>
-        Teacher
-        <select name="teacher_id">
-            @foreach($teachers as $teacher)
-                <option value="{{ $teacher->id }}" {{ ($teacher->id == $each->teacher_id) ? 'selected' : '' }}>
-                    {{ $teacher->name }}
-                </option>
-            @endforeach
-        </select>
-        <br>
-        <button>Update</button>
+        <div class="form-group col-3">
+            <label>Số buổi học</label>
+            <input type="number" name="number_lesson" value="{{ $each->number_lesson }}" class="form-control">
+        </div>
+        <div class="form-group col-3">
+            <label>Môn học</label>
+            <select name="subject_id" class="form-control">
+                @foreach($subjects as $subject)
+                    <option value="{{ $subject->id }}" {{ ($subject->id == $each->subject_id) ? 'selected' : '' }}>
+                        {{ $subject->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-3">
+            <button class="btn btn-primary">Cập nhật</button>
+        </div>
     </form>
 @endsection

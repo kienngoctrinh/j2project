@@ -9,10 +9,13 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->foreignId('slot_id')->constrained();
-            $table->foreignId('student_id')->constrained();
-            $table->smallInteger('status')->comment('AttendanceStatusEnum');
-            $table->primary(['slot_id', 'student_id']);
+            $table->id();
+            $table->smallInteger('slot')->comment('SlotSlotEnum');
+            $table->foreignId('teacher_id')->constrained();
+            $table->foreignId('subject_id')->constrained();
+            $table->foreignId('course_id')->constrained();
+            $table->date('date');
+            $table->unique(['slot', 'subject_id', 'course_id', 'date']);
         });
     }
 

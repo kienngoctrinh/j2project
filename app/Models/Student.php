@@ -16,25 +16,23 @@ class Student extends Model
         'gender',
         'birthdate',
         'address',
-        'email',
         'phone',
-        'classs_id',
+        'email',
+        'course_id',
     ];
 
     public function getGenderNameAttribute()
     {
-        return ($this->gender === 0) ? 'Female' : 'Male';
+        return ($this->gender === 0) ? 'Nữ' : 'Nam';
     }
 
-    public function classs()
+    public function course()
     {
-        return $this->belongsTo(Classs::class);
+        return $this->belongsTo(Course::class);
     }
 
-    public function getClasssNameAttribute()
+    public function getCourseNameAttribute()
     {
-        return $this->belongsTo(Classs::class);
+        return $this->belongsTo(Course::class);
     }
-
-    public $table = 'students';
 }

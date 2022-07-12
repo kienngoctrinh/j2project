@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Major\StoreRequest;
 use App\Http\Requests\Major\UpdateRequest;
+use App\Models\AcademicYear;
 use App\Models\Major;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -34,7 +35,12 @@ class MajorController extends Controller
 
     public function create()
     {
-        return view('major.create');
+
+        $academicyears = AcademicYear::get();
+
+        return view('major.create', [
+            'academicyears' => $academicyears,
+        ]);
     }
 
     public function store(StoreRequest $request)
@@ -46,8 +52,11 @@ class MajorController extends Controller
 
     public function edit(Major $major)
     {
+        $academicyears = AcademicYear::get();
+
         return view('major.edit', [
             'each' => $major,
+            'academicyears' => $academicyears,
         ]);
     }
 

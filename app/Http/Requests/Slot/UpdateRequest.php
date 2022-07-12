@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Slot;
 
 use App\Enums\SlotSlotEnum;
-use App\Models\Classs;
+use App\Models\Course;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Foundation\Http\FormRequest;
@@ -33,7 +33,7 @@ class UpdateRequest extends FormRequest
             ],
             'classs_id' => [
                 'required',
-                Rule::exists(Classs::class, 'id'),
+                Rule::exists(Course::class, 'id'),
             ],
             'date' => [
                 'required',

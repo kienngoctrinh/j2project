@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Lesson;
 
-use App\Models\Classs;
+use App\Models\Course;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Foundation\Http\FormRequest;
@@ -26,14 +26,6 @@ class UpdateRequest extends FormRequest
             'subject_id' => [
                 'required',
                 Rule::exists(Subject::class, 'id'),
-            ],
-            'classs_id' => [
-                'required',
-                Rule::exists(Classs::class, 'id'),
-            ],
-            'teacher_id' => [
-                'required',
-                Rule::exists(Teacher::class, 'id'),
             ],
         ];
     }

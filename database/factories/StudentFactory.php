@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Classs;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StudentFactory extends Factory
@@ -16,7 +16,7 @@ class StudentFactory extends Factory
             'address' => $this->faker->address,
             'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
-            'classs_id' => Classs::query()->inRandomOrder()->value('id'),
+            'course_id' => Course::query()->inRandomOrder()->value('id'),
         ];
     }
 }

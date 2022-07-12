@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AttendanceFactory extends Factory
+class AttendanceStudentFactory extends Factory
 {
     public function definition()
     {

@@ -6,7 +6,7 @@
                 @if(checkAdmin())
                     <div class="card-header">
                         <a href="{{ route('courses.create') }}" class="btn btn-success">
-                            Create
+                            Thêm
                         </a>
                     </div>
                 @endif
@@ -14,11 +14,13 @@
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
+                            <th>Mã</th>
+                            <th>Tên lớp</th>
+                            <th>Chuyên ngành</th>
+                            <th>Khoá</th>
                             @if(checkAdmin())
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xoá</th>
                             @endif
                         </tr>
                         </thead>
@@ -27,15 +29,17 @@
                             <tr>
                                 <td>{{ $each->id }}</td>
                                 <td>{{ $each->name }}</td>
+                                <td>{{ $each->major->name }}</td>
+                                <td>{{ $each->academicYear->name }}</td>
                                 @if(checkAdmin())
                                     <td>
-                                        <a href="{{ route('courses.edit', $each) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('courses.edit', $each) }}" class="btn btn-primary">Sửa</a>
                                     </td>
                                     <td>
                                         <form action="{{ route('courses.destroy', $each) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger">Delete</button>
+                                            <button class="btn btn-danger">Xoá</button>
                                         </form>
                                     </td>
                                 @endif

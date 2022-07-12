@@ -6,24 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMajorsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('majors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->foreignId('academic_year_id')->constrained();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('majors');

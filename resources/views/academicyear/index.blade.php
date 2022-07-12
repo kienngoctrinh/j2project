@@ -5,8 +5,8 @@
             <div class="card">
                 @if(checkAdmin())
                     <div class="card-header">
-                        <a href="{{ route('slots.create') }}" class="btn btn-success">
-                            Create
+                        <a href="{{ route('academicyears.create') }}" class="btn btn-success">
+                            Thêm
                         </a>
                     </div>
                 @endif
@@ -14,15 +14,11 @@
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Slot</th>
-                            <th>Teacher</th>
-                            <th>Subject</th>
-                            <th>Class</th>
-                            <th>Date</th>
+                            <th>Mã</th>
+                            <th>Tên khoá</th>
                             @if(checkAdmin())
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xoá</th>
                             @endif
                         </tr>
                         </thead>
@@ -30,20 +26,16 @@
                         @foreach($data as $each)
                             <tr>
                                 <td>{{ $each->id }}</td>
-                                <td>{{ $each->slot }}</td>
-                                <td>{{ $each->teacher->name }}</td>
-                                <td>{{ $each->subject->name }}</td>
-                                <td>{{ $each->classs->name }}</td>
-                                <td>{{ $each->date }}</td>
+                                <td>{{ $each->name }}</td>
                                 @if(checkAdmin())
                                     <td>
-                                        <a href="{{ route('slots.edit', $each) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('academicyears.edit', $each) }}" class="btn btn-primary">Sửa</a>
                                     </td>
                                     <td>
-                                        <form action="{{ route('slots.destroy', $each) }}" method="post">
+                                        <form action="{{ route('academicyears.destroy', $each) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger">Delete</button>
+                                            <button class="btn btn-danger">Xoá</button>
                                         </form>
                                     </td>
                                 @endif

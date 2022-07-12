@@ -23,7 +23,7 @@ class Teacher extends Model
 
     public function getGenderNameAttribute()
     {
-        return ($this->gender === 0) ? 'Female' : 'Male';
+        return ($this->gender === 0) ? 'Nữ' : 'Nam';
     }
 
     public function major()

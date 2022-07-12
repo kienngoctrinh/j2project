@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Course;
+namespace App\Http\Requests\AcademicYear;
 
-use App\Models\Course;
 use App\Models\AcademicYear;
-use App\Models\Major;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -22,15 +20,7 @@ class UpdateRequest extends FormRequest
                 'required',
                 'filled',
                 'string',
-                Rule::unique(Course::class)->ignore($this->course),
-            ],
-            'major_id' => [
-                'required',
-                Rule::exists(Major::class, 'id'),
-            ],
-            'academic_year_id' => [
-                'required',
-                Rule::exists(AcademicYear::class, 'id'),
+                Rule::unique(AcademicYear::class)->ignore($this->academicyear),
             ],
         ];
     }

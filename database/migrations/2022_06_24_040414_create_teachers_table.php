@@ -15,7 +15,7 @@ class CreateTeachersTable extends Migration
             $table->date('birthdate');
             $table->string('address');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->foreignId('major_id')->constrained();
         });
     }

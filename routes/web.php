@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendanceStudentController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ClasssController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MajorController;
-use App\Http\Controllers\SlotController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
@@ -30,15 +30,15 @@ Route::group([
     Route::post('register_teacher', [AuthController::class, 'processRegisterTeacher'])->name('process_register_teacher');
 
     Route::group([
-        'as'     => 'courses.',
-        'prefix' => 'courses',
+        'as'     => 'academicyears.',
+        'prefix' => 'academicyears',
     ], function () {
-        Route::get('/', [CourseController::class, 'index'])->name('index');
-        Route::get('/create', [CourseController::class, 'create'])->name('create');
-        Route::post('/store', [CourseController::class, 'store'])->name('store');
-        Route::get('/edit/{course}', [CourseController::class, 'edit'])->name('edit');
-        Route::put('/update/{course}', [CourseController::class, 'update'])->name('update');
-        Route::delete('/destroy/{course}', [CourseController::class, 'destroy'])->name('destroy');
+        Route::get('/', [AcademicYearController::class, 'index'])->name('index');
+        Route::get('/create', [AcademicYearController::class, 'create'])->name('create');
+        Route::post('/store', [AcademicYearController::class, 'store'])->name('store');
+        Route::get('/edit/{academicyear}', [AcademicYearController::class, 'edit'])->name('edit');
+        Route::put('/update/{academicyear}', [AcademicYearController::class, 'update'])->name('update');
+        Route::delete('/destroy/{academicyear}', [AcademicYearController::class, 'destroy'])->name('destroy');
     });
 
     Route::group([
@@ -78,15 +78,15 @@ Route::group([
     });
 
     Route::group([
-        'as'     => 'classses.',
-        'prefix' => 'classses',
+        'as'     => 'courses.',
+        'prefix' => 'courses',
     ], function () {
-        Route::get('/', [ClasssController::class, 'index'])->name('index');
-        Route::get('/create', [ClasssController::class, 'create'])->name('create');
-        Route::post('/store', [ClasssController::class, 'store'])->name('store');
-        Route::get('/edit/{classs}', [ClasssController::class, 'edit'])->name('edit');
-        Route::put('/update/{classs}', [ClasssController::class, 'update'])->name('update');
-        Route::delete('/destroy/{classs}', [ClasssController::class, 'destroy'])->name('destroy');
+        Route::get('/', [CourseController::class, 'index'])->name('index');
+        Route::get('/create', [CourseController::class, 'create'])->name('create');
+        Route::post('/store', [CourseController::class, 'store'])->name('store');
+        Route::get('/edit/{course}', [CourseController::class, 'edit'])->name('edit');
+        Route::put('/update/{course}', [CourseController::class, 'update'])->name('update');
+        Route::delete('/destroy/{course}', [CourseController::class, 'destroy'])->name('destroy');
     });
 
     Route::group([
@@ -114,22 +114,19 @@ Route::group([
     });
 
     Route::group([
-        'as'     => 'slots.',
-        'prefix' => 'slots',
-    ], function () {
-        Route::get('/', [SlotController::class, 'index'])->name('index');
-        Route::get('/create', [SlotController::class, 'create'])->name('create');
-        Route::post('/store', [SlotController::class, 'store'])->name('store');
-        Route::get('/edit/{slot}', [SlotController::class, 'edit'])->name('edit');
-        Route::put('/update/{slot}', [SlotController::class, 'update'])->name('update');
-        Route::delete('/destroy/{slot}', [SlotController::class, 'destroy'])->name('destroy');
-    });
-
-    Route::group([
         'as'     => 'attendances.',
         'prefix' => 'attendances',
     ], function () {
-        Route::get('/', [AttendanceController::class, 'index'])->name('index');
+        Route::get('/', [AttendanceController::class, 'get'])->name('get');
+        Route::post('/', [AttendanceController::class, 'index'])->name('index');
         Route::post('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
     });
+
+    // Route::group([
+    //     'as'     => 'attendance_students.',
+    //     'prefix' => 'attendance_students',
+    // ], function () {
+    //     Route::get('/', [AttendanceStudentController::class, 'get'])->name('get');
+    //     Route::post('/', [AttendanceStudentController::class, 'index'])->name('index');
+    // });
 });

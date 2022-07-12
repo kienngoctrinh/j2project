@@ -13,5 +13,16 @@ class Major extends Model
 
     protected $fillable = [
         'name',
+        'academic_year_id',
     ];
+
+    public function academicYear()
+    {
+        return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function getAcademicYearNameAttribute()
+    {
+        return $this->belongsTo(AcademicYear::class);
+    }
 }

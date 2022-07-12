@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Student;
 
-use App\Models\Classs;
+use App\Models\Course;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -41,9 +41,9 @@ class UpdateRequest extends FormRequest
                 'required',
                 'string',
             ],
-            'classs_id' => [
+            'course_id' => [
                 'required',
-                Rule::exists(Classs::class, 'id'),
+                Rule::exists(Course::class, 'id'),
             ],
         ];
     }

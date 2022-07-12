@@ -14,8 +14,6 @@ class Lesson extends Model
     protected $fillable = [
         'number_lesson',
         'subject_id',
-        'classs_id',
-        'teacher_id',
     ];
 
     public function subject()
@@ -30,12 +28,12 @@ class Lesson extends Model
 
     public function classs()
     {
-        return $this->belongsTo(Classs::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function getClasssNameAttribute()
     {
-        return $this->belongsTo(Classs::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function teacher()

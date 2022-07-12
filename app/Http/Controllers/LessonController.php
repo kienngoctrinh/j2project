@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Lesson\StoreRequest;
 use App\Http\Requests\Lesson\UpdateRequest;
-use App\Models\Classs;
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -38,13 +38,9 @@ class LessonController extends Controller
     public function create()
     {
         $subjects = Subject::get();
-        $classses = Classs::get();
-        $teachers = Teacher::get();
 
         return view('lesson.create', [
             'subjects' => $subjects,
-            'classses' => $classses,
-            'teachers' => $teachers,
         ]);
     }
 
@@ -58,14 +54,10 @@ class LessonController extends Controller
     public function edit(Lesson $lesson)
     {
         $subjects = Subject::get();
-        $classses = Classs::get();
-        $teachers = Teacher::get();
 
         return view('lesson.edit', [
             'each' => $lesson,
             'subjects' => $subjects,
-            'classses' => $classses,
-            'teachers' => $teachers,
         ]);
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Student\StoreRequest;
 use App\Http\Requests\Student\UpdateRequest;
-use App\Models\Classs;
+use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -35,10 +35,10 @@ class StudentController extends Controller
 
     public function create()
     {
-        $classses = Classs::get();
+        $courses = Course::get();
 
         return view('student.create', [
-            'classses' => $classses,
+            'courses' => $courses,
         ]);
     }
 
@@ -51,11 +51,11 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        $classses = Classs::get();
+        $courses = Course::get();
 
         return view('student.edit', [
             'each' => $student,
-            'classses' => $classses,
+            'courses' => $courses,
         ]);
     }
 

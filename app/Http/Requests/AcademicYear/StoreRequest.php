@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Lesson;
+namespace App\Http\Requests\AcademicYear;
 
-use App\Models\Course;
-use App\Models\Subject;
-use App\Models\Teacher;
+use App\Models\AcademicYear;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -18,15 +16,12 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'number_lesson' => [
+            'name' => [
                 'required',
                 'filled',
                 'string',
-            ],
-            'subject_id' => [
-                'required',
-                Rule::exists(Subject::class, 'id'),
-            ],
+                Rule::unique(AcademicYear::class)->ignore($this->academicyear),
+            ]
         ];
     }
 }

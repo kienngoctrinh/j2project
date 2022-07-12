@@ -14,9 +14,9 @@ class CreateStudentsTable extends Migration
             $table->boolean('gender');
             $table->date('birthdate');
             $table->string('address');
-            $table->string('email');
             $table->string('phone');
-            $table->foreignId('classs_id')->constrained();
+            $table->string('email')->nullable();
+            $table->foreignId('course_id')->constrained();
         });
     }
 

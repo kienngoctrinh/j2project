@@ -1,26 +1,5 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left-side-menu mm-show">
-
-    <!-- LOGO -->
-    <a href="index.html" class="logo text-center logo-light">
-        <span class="logo-lg">
-            <img src="assets/images/logo.png" alt="" height="16">
-        </span>
-        <span class="logo-sm">
-            <img src="assets/images/logo_sm.png" alt="" height="16">
-        </span>
-    </a>
-
-    <!-- LOGO -->
-    <a href="index.html" class="logo text-center logo-dark">
-        <span class="logo-lg">
-            <img src="assets/images/logo-dark.png" alt="" height="16">
-        </span>
-        <span class="logo-sm">
-            <img src="assets/images/logo_sm_dark.png" alt="" height="16">
-        </span>
-    </a>
-
     <div class="h-100 mm-active" id="left-side-menu-container" data-simplebar="init">
         <div class="simplebar-wrapper" style="margin: 0px;">
             <div class="simplebar-height-auto-observer-wrapper">
@@ -34,97 +13,90 @@
                             <!--- Sidemenu -->
                             <ul class="metismenu side-nav mm-show">
 
-                                <li class="side-nav-title side-nav-item">Manage</li>
+                                <li class="side-nav-title side-nav-item">Quản lý</li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{ route('courses.index') }}" class="side-nav-link" aria-expanded="false">
+                                    <a href="{{ route('academicyears.index') }}" class="side-nav-link" aria-expanded="false">
                                         <i class="uil-home-alt"></i>
-                                        <span> Course </span>
+                                        <span> Khoá </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('majors.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Major </span>
+                                        <span> Chuyên ngành </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('courses.index') }}" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span class="badge badge-success float-right"></span>
+                                        <span> Lớp </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('subjects.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Subject </span>
+                                        <span> Môn học </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('teachers.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Teacher </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('classses.index') }}" class="side-nav-link">
-                                        <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right"></span>
-                                        <span> Class </span>
+                                        <span> Giáo viên </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('students.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Student </span>
+                                        <span> Sinh viên </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('lessons.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Lesson </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('slots.index') }}" class="side-nav-link">
-                                        <i class="uil-home-alt"></i>
-                                        <span class="badge badge-success float-right"></span>
-                                        <span> Slot </span>
+                                        <span> Buổi học </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('attendances.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Attendance </span>
+                                        <span> Điểm danh </span>
                                     </a>
                                 </li>
                                 @if(session()->get('role') === 1)
-                                <li class="side-nav-title side-nav-item">Register</li>
+                                <li class="side-nav-title side-nav-item">Đăng ký tài khoản</li>
 
                                 <li class="side-nav-item">
                                     <a href="{{ route('register_ministry') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Ministry </span>
+                                        <span> Giáo vụ </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('register_teacher') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Teacher </span>
+                                        <span> Giáo viên </span>
                                     </a>
                                 </li>
                                 @endif
 
                                 @if(session()->get('role') === 2)
-                                <li class="side-nav-title side-nav-item">Register</li>
+                                <li class="side-nav-title side-nav-item">Đăng ký tài khoản</li>
 
                                 <li class="side-nav-item">
                                     <a href="{{ route('register_teacher') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Teacher </span>
+                                        <span> Giáo viên </span>
                                     </a>
                                 </li>
                                 @endif

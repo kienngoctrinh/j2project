@@ -6,7 +6,7 @@
                 @if(checkAdmin())
                     <div class="card-header">
                         <a href="{{ route('lessons.create') }}" class="btn btn-success">
-                            Create
+                            Thêm
                         </a>
                     </div>
                 @endif
@@ -14,14 +14,12 @@
                     <table class="table table-striped table-centered mb-0" id="table-data">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Number Lesson</th>
-                            <th>Subject</th>
-                            <th>Class</th>
-                            <th>Teacher</th>
+                            <th>Mã</th>
+                            <th>Số buổi học</th>
+                            <th>Môn học</th>
                             @if(checkAdmin())
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xoá</th>
                             @endif
                         </tr>
                         </thead>
@@ -31,17 +29,15 @@
                                 <td>{{ $each->id }}</td>
                                 <td>{{ $each->number_lesson }}</td>
                                 <td>{{ $each->subject->name }}</td>
-                                <td>{{ $each->classs->name }}</td>
-                                <td>{{ $each->teacher->name }}</td>
                                 @if(checkAdmin())
                                     <td>
-                                        <a href="{{ route('lessons.edit', $each) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('lessons.edit', $each) }}" class="btn btn-primary">Sửa</a>
                                     </td>
                                     <td>
                                         <form action="{{ route('lessons.destroy', $each) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger">Delete</button>
+                                            <button class="btn btn-danger">Xoá</button>
                                         </form>
                                     </td>
                                 @endif
