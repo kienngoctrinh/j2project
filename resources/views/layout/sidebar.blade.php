@@ -39,7 +39,7 @@
                                     <a href="{{ route('subjects.index') }}" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span class="badge badge-success float-right"></span>
-                                        <span> Môn học </span>
+                                        <span> Môn </span>
                                     </a>
                                 </li>
                                 <li>

@@ -88,7 +88,7 @@ class AttendanceController extends Controller
             }
         }
 
-        return view('attendance.index', [
+        return view('attendance.attendance', [
             'academicYears' => $academicYears,
             'majors' => $majors,
             'courses' => $courses,
