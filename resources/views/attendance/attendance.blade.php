@@ -64,9 +64,7 @@
                                 <label>Giáo viên</label>
                                 <select name="teacher_id" class="form-control">
                                     @foreach ($teachers as $teacher)
-                                        <option
-                                                value="{{ $teacher->id }}"
-                                        >
+                                        <option value="{{ $teacher->id }}">
                                             {{ $teacher->name }}
                                         </option>
                                     @endforeach

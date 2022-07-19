@@ -54,16 +54,18 @@ class AttendanceController extends Controller
         $majors = Major::get();
         $courses = Course::get();
         $subjects = Subject::get();
-        $teachers = Teacher::get();
 
         $academicYearId = $request->get('academicYear_id');
         $majorId = $request->get('major_id');
         $courseId = $request->get('course_id');
         $subjectId = $request->get('subject_id');
-        $teacherId = $request->get('teacher_id');
 
         $students = Student::query()
             ->where('course_id', $courseId)
+            ->get();
+
+        $teachers = Teacher::query()
+            ->where('major_id', $majorId)
             ->get();
 
         $attendanceId = Attendance::query()
@@ -99,7 +101,6 @@ class AttendanceController extends Controller
             'majorId' => $majorId,
             'courseId' => $courseId,
             'subjectId' => $subjectId,
-            'teacherId' => $teacherId,
             'statuses' => $statuses,
         ]);
     }

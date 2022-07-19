@@ -11,12 +11,7 @@
                             <label>Khoá</label>
                             <select name="academicYear_id" class="form-control" id="select-academic-year">
                                 @foreach ($academicYears as $academicYear)
-                                    <option
-                                            value="{{ $academicYear->id }}"
-                                            @if(isset($academicYearId) && $academicYearId == $academicYear->id)
-                                                selected
-                                            @endif
-                                    >
+                                    <option value="{{ $academicYear->id }}">
                                         {{ $academicYear->name }}
                                     </option>
                                 @endforeach
@@ -26,12 +21,7 @@
                             <label>Chuyên ngành</label>
                             <select name="major_id" class="form-control" id="select-major">
                                 @foreach ($majors as $major)
-                                    <option
-                                            value="{{ $major->id }}"
-                                            @if (isset($majorId) && $majorId == $major->id)
-                                                selected
-                                            @endif
-                                    >
+                                    <option value="{{ $major->id }}">
                                         {{ $major->name }}
                                     </option>
                                 @endforeach
@@ -41,12 +31,7 @@
                             <label>Lớp</label>
                             <select name="course_id" class="form-control">
                                 @foreach ($courses as $course)
-                                    <option
-                                            value="{{ $course->id }}"
-                                            @if (isset($courseId) && $courseId == $course->id)
-                                                selected
-                                            @endif
-                                    >
+                                    <option value="{{ $course->id }}">
                                         {{ $course->name }}
                                     </option>
                                 @endforeach
@@ -56,12 +41,7 @@
                             <label>Môn học</label>
                             <select name="subject_id" class="form-control">
                                 @foreach ($subjects as $subject)
-                                    <option
-                                            value="{{ $subject->id }}"
-                                            @if (isset($subjectId) && $subjectId == $subject->id)
-                                                selected
-                                            @endif
-                                    >
+                                    <option value="{{ $subject->id }}">
                                         {{ $subject->name }}
                                     </option>
                                 @endforeach
